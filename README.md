@@ -34,7 +34,8 @@ export FLASK_APP=flaskr
 首先得通过flask进行数据库初始化
 flask init-db
 pip install waitress
-waitress-serve --call 'flaskr:create_app'
+mac: waitress-serve --call 'flaskr:create_app'
+windows: waitress-serve --call flaskr:create_app
 
 
 ├── flaskr/
