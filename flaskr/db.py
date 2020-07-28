@@ -19,6 +19,8 @@ def get_db():
         )
         g.db.row_factory = sqlite3.Row
 
+    print("db_path:",current_app.config['DATABASE'])
+
     return g.db
 
 

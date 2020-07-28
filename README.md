@@ -1,24 +1,29 @@
 # flask-project-demo
 
+### 环境准备
 ```
 python -m venv venv
 ```
 
-创建gitignore
-创建flaskr, tests
+创建文件gitignore
+创建文件夹flaskr, tests
 
 ```shell
-flask init-db
+# windows
+set FLASK_APP=flaskr
+set FLASK_ENV=development
 ```
 
 ```shell
+# linux
 export FLASK_APP=flaskr
 export FLASK_ENV=development
 ```
 
-set FLASK_APP=flaskr
-set FLASK_ENV=development
+flask init-db
 flask run
+
+### 打包和安装
 
 安装打包依赖
 pip install wheel
@@ -27,16 +32,22 @@ pip install wheel
 python setup.py bdist_wheel
 
 安装
-pip install flaskr-1.0.0-py3-none-any.whl
+pip3 install flaskr-1.0.0-py3-none-any.whl
 
-运行
+### 部署运行
 export FLASK_APP=flaskr
 首先得通过flask进行数据库初始化
-flask init-db
-pip install waitress
-mac: waitress-serve --call 'flaskr:create_app'
-windows: waitress-serve --call flaskr:create_app
+db_path: /usr/local/python3.7/var/flaskr-instance/flaskr.sqlite
 
+centos 加python3 -m
+python3 -m flask init-db
+
+pip3 install waitress
+mac:     waitress-serve --call 'flaskr:create_app'
+windows: waitress-serve --call flaskr:create_app
+centos:  python3 -m waitress --call 'flaskr:create_app'
+
+### 目录结构
 
 ├── flaskr/
 │   ├── __init__.py
