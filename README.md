@@ -2,26 +2,39 @@
 
 ### 环境准备
 ```
-python -m venv venv
+python3 -m venv venv
+# mac
+. venv/bin/activate
+# windows
+venv\Scripts\activate
+
+pip install Flask
 ```
 
 创建文件gitignore
 创建文件夹flaskr, tests
 
 ```shell
-# windows
+# windows, development表示修改代码不用重启，还开启了调试模式（页面显示错误）
 set FLASK_APP=flaskr
 set FLASK_ENV=development
-```
 
-```shell
 # linux
 export FLASK_APP=flaskr
 export FLASK_ENV=development
-```
 
 flask init-db
+# 默认监听127.0.0.1
 flask run
+# 监听所有网络
+flask run --host=0.0.0.0
+
+```
+
+### 测试
+
+pytest -s
+测试的是已经install的app
 
 ### 打包和安装
 
@@ -45,7 +58,7 @@ python3 -m flask init-db
 pip3 install waitress
 mac:     waitress-serve --call 'flaskr:create_app'
 windows: waitress-serve --call flaskr:create_app
-centos:  python3 -m waitress --call 'flaskr:create_app'
+centos:  python3 -m waitress --port=5000 --call flaskr:create_app
 
 ### 目录结构
 
