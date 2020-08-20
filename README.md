@@ -60,6 +60,17 @@ mac:     waitress-serve --call 'flaskr:create_app'
 windows: waitress-serve --call flaskr:create_app
 centos:  python3 -m waitress --port=5000 --call flaskr:create_app
 
+
+
+
+
+**问题：**
+pip install uwsgi 之后，运行uwsgi 报错：[uwsgi: command not found]
+
+**解决方案：**建立软链接 
+ln -s /usr/local/python3.7/bin/uwsgi /usr/bin/uwsgi
+
+
 ### 目录结构
 
 ├── flaskr/
